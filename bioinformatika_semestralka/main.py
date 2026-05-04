@@ -40,22 +40,47 @@ from kmer_index_menu import (
 )
 
 
-def test_basic_operations():
-    seq1 = "AUGGCUUAA"
-    seq2 = "AUGGCUUAA"
+def basic_operations_menu():
+    print("\n=== 1-3: Zakladne operacie ===")
 
-    print("\n=== Test 1-3: Zakladne operacie ===")
+    print("\n1. Porovnanie dvoch sekvencii nad zadanou abecedou")
+    seq1 = input("Zadaj prvu sekvenciu: ").strip()
+    seq2 = input("Zadaj druhu sekvenciu: ").strip()
+    alphabet_input = input("Zadaj povolenu abecedu [AUCG]: ").strip().upper()
 
-    print("Test identity a abecedy:")
-    print(are_identical_and_valid(seq1, seq2, MRNA_ALPHABET))
+    if alphabet_input == "":
+        alphabet = MRNA_ALPHABET
+    else:
+        alphabet = set(alphabet_input)
 
-    print("\nTest prevodu kodonu:")
-    print("AUG ->", codon_to_amino_acid("AUG"))
-    print("GCU ->", codon_to_amino_acid("GCU"))
-    print("UAA ->", codon_to_amino_acid("UAA"))
+    try:
+        result = are_identical_and_valid(seq1, seq2, alphabet)
+        print("Sekvencie su identicke a nad zadanou abecedou:", result)
+    except Exception as error:
+        print(f"Chyba: {error}")
 
-    print("\nTest prekladu mRNA na protein:")
-    print(seq1, "->", translate_mrna_to_protein(seq1))
+    print("\n2. Preklad kodonu na aminokyselinu")
+    codon = input("Zadaj kodon, napr. AUG: ").strip().upper()
+
+    try:
+        amino_acid = codon_to_amino_acid(codon)
+        print(f"{codon} -> {amino_acid}")
+    except Exception as error:
+        print(f"Chyba: {error}")
+
+    print("\n3. Preklad mRNA na protein")
+    mrna = input("Zadaj mRNA sekvenciu: ").strip().upper()
+
+    try:
+        protein = translate_mrna_to_protein(mrna)
+
+        if protein == "":
+            print(f"{mrna} -> nenasiel sa platny protein")
+            print("Sekvencia pravdepodobne neobsahuje start kodon AUG alebo neobsahuje prelozitelny usek.")
+        else:
+            print(f"{mrna} -> {protein}")
+    except Exception as error:
+        print(f"Chyba: {error}")
 
 
 def load_sequences_menu(database: SequenceDatabase):
@@ -206,7 +231,7 @@ def main():
         choice = input("Vyber moznost: ").strip()
 
         if choice == "1":
-            test_basic_operations()
+            basic_operations_menu()
 
         elif choice == "2":
             load_sequences_menu(database)

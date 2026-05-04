@@ -1,0 +1,5 @@
+k;build_time_ms;unique_kmers;total_occurrences;most_frequent_kmer;most_frequent_count
+3;3.2438;64;13315;AAA;414
+5;9.9832;1012;13305;AGAAA;60
+7;3.3324;7787;13295;UUUUUUU;27
+9;3.4548;12588;13285;UUUUUUUUU;18

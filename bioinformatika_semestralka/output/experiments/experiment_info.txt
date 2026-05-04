@@ -1,0 +1,13 @@
+Experimenty pre semestralnu pracu BZGI
+======================================
+
+Data directory: data
+Output directory: output/experiments
+Prefix lengths: [50, 100, 200, 500]
+K values: [3, 5, 7, 9]
+Scoring: match=2, mismatch=-1, gap=-2
+
+Teoreticka zlozitost:
+Needleman-Wunsch: O(n*m), pamat O(n*m)
+Smith-Waterman: O(n*m), pamat O(n*m)
+Index k-tic: O(N), kde N je celkova dlzka sekvencii

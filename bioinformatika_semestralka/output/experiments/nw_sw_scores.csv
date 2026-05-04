@@ -1,0 +1,11 @@
+pair;seq1_header;seq2_header;prefix_length;match;mismatch;gap;nw_score;sw_score;nw_alignment_length;sw_alignment_length
+1-2;NM_001101.5 Homo sapiens actin beta (ACTB), mRNA;NM_007294.4 Homo sapiens BRCA1 DNA repair associated (BRCA1), transcript variant 1, mRNA;500;2;-1;-2;163;176;539;521
+1-3;NM_001101.5 Homo sapiens actin beta (ACTB), mRNA;NM_002046.7 Homo sapiens glyceraldehyde-3-phosphate dehydrogenase (GAPDH), transcript variant 1, mRNA;500;2;-1;-2;199;226;537;471
+1-4;NM_001101.5 Homo sapiens actin beta (ACTB), mRNA;NM_000518.5 Homo sapiens hemoglobin subunit beta (HBB), mRNA;500;2;-1;-2;220;229;541;519
+1-5;NM_001101.5 Homo sapiens actin beta (ACTB), mRNA;NM_000546.6 Homo sapiens tumor protein p53 (TP53), transcript variant 1, mRNA;500;2;-1;-2;205;241;556;498
+2-3;NM_007294.4 Homo sapiens BRCA1 DNA repair associated (BRCA1), transcript variant 1, mRNA;NM_002046.7 Homo sapiens glyceraldehyde-3-phosphate dehydrogenase (GAPDH), transcript variant 1, mRNA;500;2;-1;-2;196;206;547;466
+2-4;NM_007294.4 Homo sapiens BRCA1 DNA repair associated (BRCA1), transcript variant 1, mRNA;NM_000518.5 Homo sapiens hemoglobin subunit beta (HBB), mRNA;500;2;-1;-2;175;197;557;516
+2-5;NM_007294.4 Homo sapiens BRCA1 DNA repair associated (BRCA1), transcript variant 1, mRNA;NM_000546.6 Homo sapiens tumor protein p53 (TP53), transcript variant 1, mRNA;500;2;-1;-2;163;187;540;514
+3-4;NM_002046.7 Homo sapiens glyceraldehyde-3-phosphate dehydrogenase (GAPDH), transcript variant 1, mRNA;NM_000518.5 Homo sapiens hemoglobin subunit beta (HBB), mRNA;500;2;-1;-2;217;240;554;541
+3-5;NM_002046.7 Homo sapiens glyceraldehyde-3-phosphate dehydrogenase (GAPDH), transcript variant 1, mRNA;NM_000546.6 Homo sapiens tumor protein p53 (TP53), transcript variant 1, mRNA;500;2;-1;-2;193;203;551;526
+4-5;NM_000518.5 Homo sapiens hemoglobin subunit beta (HBB), mRNA;NM_000546.6 Homo sapiens tumor protein p53 (TP53), transcript variant 1, mRNA;500;2;-1;-2;199;232;560;532
