@@ -22,11 +22,21 @@ from mrna_analysis_menu import (
 from alignment_menu import (
     hamming_distance_manual_menu,
     hamming_distance_database_menu,
+    needleman_wunsch_manual_menu,
+    needleman_wunsch_database_menu,
+    smith_waterman_manual_menu,
+    smith_waterman_database_menu,
 )
 
 from dotplot_menu import (
     dotplot_manual_menu,
     dotplot_database_menu,
+)
+
+from kmer_index_menu import (
+    build_kmer_index_menu,
+    search_kmer_menu,
+    kmer_index_summary_menu,
 )
 
 
@@ -178,6 +188,13 @@ def show_menu():
     print("14. Hammingova vzdialenost - sekvencie z databazy")
     print("15. Dot plot - manualne zadanie sekvencii")
     print("16. Dot plot - sekvencie z databazy")
+    print("17. Needleman-Wunsch - manualne zadanie")
+    print("18. Needleman-Wunsch - sekvencie z databazy")
+    print("19. Smith-Waterman - manualne zadanie")
+    print("20. Smith-Waterman - sekvencie z databazy")
+    print("21. Vybudovat index k-tic")
+    print("22. Vyhladat k-ticu v indexe")
+    print("23. Vypisat suhrn indexu k-tic")
     print("0. Koniec")
 
 
@@ -235,6 +252,28 @@ def main():
 
         elif choice == "16":
             dotplot_database_menu(database)
+
+        elif choice == "17":
+            needleman_wunsch_manual_menu()
+
+        elif choice == "18":
+            needleman_wunsch_database_menu(database)
+
+        elif choice == "19":
+            smith_waterman_manual_menu()
+
+        elif choice == "20":
+            smith_waterman_database_menu(database)
+
+        elif choice == "21":
+            build_kmer_index_menu(database)
+
+        elif choice == "22":
+            search_kmer_menu(database)
+
+        elif choice == "23":
+            kmer_index_summary_menu(database)
+
 
         elif choice == "0":
             print("Koniec programu.")

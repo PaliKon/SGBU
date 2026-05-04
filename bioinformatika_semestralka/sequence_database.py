@@ -2,6 +2,7 @@
 
 from fasta_utils import read_fasta
 from pathlib import Path
+from kmer_index import KmerIndex
 
 
 class SequenceDatabase:
@@ -11,13 +12,17 @@ class SequenceDatabase:
 
     def __init__(self):
         self.records = []
+        self.kmer_index = None
 
     def load_from_fasta(self, file_path: str) -> None:
         """
         Načíta viacero mRNA sekvencií zo súboru FASTA do pamäte.
+        Ak už existuje k-mer index, automaticky ho aktualizuje.
         """
         loaded_records = read_fasta(file_path)
-        self.records.extend(loaded_records)
+
+        for record in loaded_records:
+            self.add_sequence(record["sequence"], record.get("header"))
 
     def load_from_directory(self, directory_path: str) -> None:
         """
@@ -54,12 +59,18 @@ class SequenceDatabase:
     def add_sequence(self, sequence: str, header: str | None = None) -> None:
         """
         Pridá jednu sekvenciu manuálne do databázy.
+        Ak už existuje k-mer index, automaticky ho aktualizuje.
         """
         record = {
             "header": header,
             "sequence": sequence
         }
+
         self.records.append(record)
+
+        if self.kmer_index is not None:
+            sequence_number = len(self.records)
+            self.kmer_index.add_sequence(record, sequence_number)
 
     def list_sequences(self) -> None:
         """
@@ -109,3 +120,16 @@ class SequenceDatabase:
             raise IndexError("Neplatné číslo sekvencie.")
 
         return self.records[sequence_number - 1]["sequence"]
+    
+    def build_kmer_index(self, k: int) -> None:
+        """
+        Vybuduje index k-tíc nad aktuálnou databázou.
+        """
+        self.kmer_index = KmerIndex(k)
+        self.kmer_index.build(self.records)
+
+    def has_kmer_index(self) -> bool:
+        """
+        Zistí, či je index k-tíc vytvorený.
+        """
+        return self.kmer_index is not None
